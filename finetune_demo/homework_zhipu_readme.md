@@ -80,13 +80,14 @@ Training completed. Do not forget to share your model on huggingface.co/models =
 
 ##  你需要自己适配 inference.py 中的代码，并迁移到其他的推理框架中。例如，basic_demo 中没有读取微调模型后的 adapter 的内容，你需要参考 inference.py 的代码并进行修改，让其他 demo 能读入你的微调代码，将其部署到 basic_demo 下的 gradio_demo 中，并能够通过 webui 来进行调用。
 
-![web-gradio-inference](chatglm-web-gradio-inference.png)
+![web gradio inference](chatglm-web-gradio-inference.png)
 
-![inference-result1](chatglm-inference-result1.png)
+![inference result1](chatglm-inference-result1.png)
 
-![inference-result2](chatglm-inference-result2.png)
+![inference result2](chatglm-inference-result2.png)
 
-[lora_finetune_inference notebook](lora_finetune_inference.ipynb) 
+[lora finetune inference notebook](lora_finetune_inference.ipynb) 
 
+![adapter config base model path](adapter_config_base_model_path.png)
 
-![adapter_config_base_model_path](adapter_config_base_model_path.png)
+![web gradio ui model path](web_gradio_ui.png)
