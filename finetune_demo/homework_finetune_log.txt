@@ -1,0 +1,659 @@
+2024-04-04 00:12:32.395749: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-04-04 00:12:32.395804: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-04-04 00:12:32.397587: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-04-04 00:12:33.472625: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Setting eos_token is not supported, use the default one.
+Setting pad_token is not supported, use the default one.
+Setting unk_token is not supported, use the default one.
+Loading checkpoint shards: 100% 3/3 [00:03<00:00,  1.12s/it]
+trainable params: 974,848 || all params: 6,244,558,848 || trainable%: 0.01561115883009451
+--> Model
+
+--> model has 0.974848M params
+
+Setting num_proc from 16 back to 1 for the train split to disable multiprocessing as it only contains one shard.
+Generating train split: 114599 examples [00:00, 540986.87 examples/s]
+Setting num_proc from 16 back to 1 for the validation split to disable multiprocessing as it only contains one shard.
+Generating validation split: 1070 examples [00:00, 162935.86 examples/s]
+Setting num_proc from 16 back to 1 for the test split to disable multiprocessing as it only contains one shard.
+Generating test split: 1070 examples [00:00, 197531.04 examples/s]
+Map (num_proc=16): 100% 114599/114599 [00:04<00:00, 26810.30 examples/s]
+train_dataset: Dataset({
+    features: ['input_ids', 'labels'],
+    num_rows: 114599
+})
+Map (num_proc=16): 100% 1070/1070 [00:00<00:00, 1625.01 examples/s]
+val_dataset: Dataset({
+    features: ['input_ids', 'output_ids'],
+    num_rows: 1070
+})
+Map (num_proc=16): 100% 1070/1070 [00:00<00:00, 1635.84 examples/s]
+test_dataset: Dataset({
+    features: ['input_ids', 'output_ids'],
+    num_rows: 1070
+})
+--> Sanity check
+           '[gMASK]': 64790 -> -100
+               'sop': 64792 -> -100
+          '<|user|>': 64795 -> -100
+                  '': 30910 -> -100
+                '\n': 13 -> -100
+                  '': 30910 -> -100
+                '类型': 33467 -> -100
+                 '#': 31010 -> -100
+                 '裤': 56532 -> -100
+                 '*': 30998 -> -100
+                 '版': 55090 -> -100
+                 '型': 54888 -> -100
+                 '#': 31010 -> -100
+                '宽松': 40833 -> -100
+                 '*': 30998 -> -100
+                '风格': 32799 -> -100
+                 '#': 31010 -> -100
+                '性感': 40589 -> -100
+                 '*': 30998 -> -100
+                '图案': 37505 -> -100
+                 '#': 31010 -> -100
+                '线条': 37216 -> -100
+                 '*': 30998 -> -100
+                 '裤': 56532 -> -100
+                 '型': 54888 -> -100
+                 '#': 31010 -> -100
+                 '阔': 56529 -> -100
+                 '腿': 56158 -> -100
+                 '裤': 56532 -> -100
+     '<|assistant|>': 64796 -> -100
+                  '': 30910 -> 30910
+                '\n': 13 -> 13
+                  '': 30910 -> 30910
+                '宽松': 40833 -> 40833
+                 '的': 54530 -> 54530
+                 '阔': 56529 -> 56529
+                 '腿': 56158 -> 56158
+                 '裤': 56532 -> 56532
+                 '这': 54551 -> 54551
+                '两年': 33808 -> 33808
+                '真的': 32041 -> 32041
+                 '吸': 55360 -> 55360
+                 '粉': 55486 -> 55486
+                '不少': 32138 -> 32138
+                 '，': 31123 -> 31123
+                '明星': 32943 -> 32943
+                '时尚': 33481 -> 33481
+                 '达': 54880 -> 54880
+                '人的': 31664 -> 31664
+                '心头': 46565 -> 46565
+                 '爱': 54799 -> 54799
+                 '。': 31155 -> 31155
+                '毕竟': 33051 -> 33051
+                 '好': 54591 -> 54591
+                 '穿': 55432 -> 55432
+                '时尚': 33481 -> 33481
+                 '，': 31123 -> 31123
+                 '谁': 55622 -> 55622
+                '都能': 32904 -> 32904
+                 '穿': 55432 -> 55432
+                 '出': 54557 -> 54557
+                 '腿': 56158 -> 56158
+                 '长': 54625 -> 54625
+                 '2': 30943 -> 30943
+                 '米': 55055 -> 55055
+               '的效果': 35590 -> 35590
+                '宽松': 40833 -> 40833
+                 '的': 54530 -> 54530
+                 '裤': 56532 -> 56532
+                 '腿': 56158 -> 56158
+                 '，': 31123 -> 31123
+               '当然是': 48466 -> 48466
+                 '遮': 57148 -> 57148
+                 '肉': 55343 -> 55343
+                 '小': 54603 -> 54603
+                '能手': 49355 -> 49355
+                 '啊': 55674 -> 55674
+                 '。': 31155 -> 31155
+                '上身': 51605 -> 51605
+                 '随': 55119 -> 55119
+                 '性': 54642 -> 54642
+                '自然': 31799 -> 31799
+                 '不': 54535 -> 54535
+                 '拘': 57036 -> 57036
+                 '束': 55625 -> 55625
+                 '，': 31123 -> 31123
+                '面料': 46839 -> 46839
+                 '亲': 55113 -> 55113
+                 '肤': 56089 -> 56089
+                '舒适': 33894 -> 33894
+                 '贴': 55778 -> 55778
+                '身体': 31902 -> 31902
+                 '验': 55017 -> 55017
+                 '感': 54706 -> 54706
+                 '棒': 56382 -> 56382
+                 '棒': 56382 -> 56382
+                 '哒': 59230 -> 59230
+                 '。': 31155 -> 31155
+                 '系': 54712 -> 54712
+                 '带': 54882 -> 54882
+                '部分': 31726 -> 31726
+                '增加': 31917 -> 31917
+                '设计': 31735 -> 31735
+                '看点': 45032 -> 45032
+                 '，': 31123 -> 31123
+                 '还': 54656 -> 54656
+                 '让': 54772 -> 54772
+                '单品': 46539 -> 46539
+               '的设计': 34481 -> 34481
+                 '感': 54706 -> 54706
+                '更强': 43084 -> 43084
+                 '。': 31155 -> 31155
+                '腿部': 46799 -> 46799
+                '线条': 37216 -> 37216
+                 '若': 55351 -> 55351
+                 '隐': 55733 -> 55733
+                 '若': 55351 -> 55351
+                 '现': 54600 -> 54600
+                 '的': 54530 -> 54530
+                 '，': 31123 -> 31123
+                '性感': 40589 -> 40589
+                 '撩': 58521 -> 58521
+                 '人': 54533 -> 54533
+                 '。': 31155 -> 31155
+                '颜色': 33692 -> 33692
+                 '敲': 57004 -> 57004
+                '温柔': 34678 -> 34678
+                 '的': 54530 -> 54530
+                 '，': 31123 -> 31123
+                 '与': 54619 -> 54619
+                '裤子': 44722 -> 44722
+                '本身': 32754 -> 32754
+                 '所': 54626 -> 54626
+                '呈现': 33169 -> 33169
+               '的风格': 48084 -> 48084
+                '有点': 33149 -> 33149
+                 '反': 54955 -> 54955
+                 '差': 55342 -> 55342
+                 '萌': 56842 -> 56842
+                 '。': 31155 -> 31155
+                  '': 2 -> 2
+/usr/local/lib/python3.10/dist-packages/accelerate/accelerator.py:432: FutureWarning: Passing the following arguments to `Accelerator` is deprecated and will be removed in version 1.0 of Accelerate: dict_keys(['dispatch_batches', 'split_batches', 'even_batches', 'use_seedable_sampler']). Please pass an `accelerate.DataLoaderConfiguration` instead: 
+dataloader_config = DataLoaderConfiguration(dispatch_batches=None, split_batches=False, even_batches=True, use_seedable_sampler=True)
+  warnings.warn(
+max_steps is given, it will override any value given in num_train_epochs
+Using auto half precision backend
+/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 16 worker processes in total. Our suggested max number of worker in current system is 12, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+***** Running training *****
+  Num examples = 114,599
+  Num Epochs = 2
+  Instantaneous batch size per device = 4
+  Total train batch size (w. parallel, distributed & accumulation) = 16
+  Gradient Accumulation steps = 4
+  Total optimization steps = 8,000
+  Number of trainable parameters = 974,848
+{'loss': 4.4769, 'grad_norm': 4.457520484924316, 'learning_rate': 4.984375e-05, 'epoch': 0.0}
+{'loss': 3.8729, 'grad_norm': 3.1617679595947266, 'learning_rate': 4.96875e-05, 'epoch': 0.01}
+{'loss': 3.6489, 'grad_norm': 3.3320322036743164, 'learning_rate': 4.953125e-05, 'epoch': 0.01}
+{'loss': 3.5044, 'grad_norm': 4.019688129425049, 'learning_rate': 4.937500000000001e-05, 'epoch': 0.01}
+{'loss': 3.4787, 'grad_norm': 4.111749649047852, 'learning_rate': 4.921875e-05, 'epoch': 0.02}
+{'loss': 3.4398, 'grad_norm': 4.5902934074401855, 'learning_rate': 4.90625e-05, 'epoch': 0.02}
+{'loss': 3.3881, 'grad_norm': 4.6386237144470215, 'learning_rate': 4.8906250000000006e-05, 'epoch': 0.02}
+{'loss': 3.4003, 'grad_norm': 4.84608268737793, 'learning_rate': 4.875e-05, 'epoch': 0.03}
+{'loss': 3.3342, 'grad_norm': 5.218606948852539, 'learning_rate': 4.8593750000000005e-05, 'epoch': 0.03}
+{'loss': 3.3622, 'grad_norm': 5.158422470092773, 'learning_rate': 4.8437500000000005e-05, 'epoch': 0.03}
+{'loss': 3.3701, 'grad_norm': 5.2556867599487305, 'learning_rate': 4.828125e-05, 'epoch': 0.04}
+{'loss': 3.3174, 'grad_norm': 5.343079090118408, 'learning_rate': 4.8125000000000004e-05, 'epoch': 0.04}
+{'loss': 3.2815, 'grad_norm': 5.956881999969482, 'learning_rate': 4.7968750000000004e-05, 'epoch': 0.05}
+{'loss': 3.3043, 'grad_norm': 5.705592632293701, 'learning_rate': 4.7812500000000003e-05, 'epoch': 0.05}
+{'loss': 3.27, 'grad_norm': 5.913350582122803, 'learning_rate': 4.765625e-05, 'epoch': 0.05}
+{'loss': 3.3241, 'grad_norm': 5.243463516235352, 'learning_rate': 4.75e-05, 'epoch': 0.06}
+{'loss': 3.2906, 'grad_norm': 5.332241058349609, 'learning_rate': 4.734375e-05, 'epoch': 0.06}
+{'loss': 3.3128, 'grad_norm': 5.840092182159424, 'learning_rate': 4.71875e-05, 'epoch': 0.06}
+{'loss': 3.2887, 'grad_norm': 6.837751865386963, 'learning_rate': 4.703125e-05, 'epoch': 0.07}
+{'loss': 3.2726, 'grad_norm': 6.142899036407471, 'learning_rate': 4.6875e-05, 'epoch': 0.07}
+{'loss': 3.3246, 'grad_norm': 6.313248634338379, 'learning_rate': 4.671875e-05, 'epoch': 0.07}
+{'loss': 3.2888, 'grad_norm': 6.160290718078613, 'learning_rate': 4.65625e-05, 'epoch': 0.08}
+{'loss': 3.2673, 'grad_norm': 6.094671249389648, 'learning_rate': 4.640625e-05, 'epoch': 0.08}
+{'loss': 3.2477, 'grad_norm': 5.925835132598877, 'learning_rate': 4.6250000000000006e-05, 'epoch': 0.08}
+{'loss': 3.2487, 'grad_norm': 6.062042713165283, 'learning_rate': 4.609375e-05, 'epoch': 0.09}
+{'loss': 3.2738, 'grad_norm': 6.096379280090332, 'learning_rate': 4.59375e-05, 'epoch': 0.09}
+{'loss': 3.3022, 'grad_norm': 6.839846134185791, 'learning_rate': 4.5781250000000005e-05, 'epoch': 0.09}
+{'loss': 3.228, 'grad_norm': 6.791756629943848, 'learning_rate': 4.5625e-05, 'epoch': 0.1}
+{'loss': 3.2706, 'grad_norm': 6.396697044372559, 'learning_rate': 4.5468750000000004e-05, 'epoch': 0.1}
+{'loss': 3.2283, 'grad_norm': 6.21622896194458, 'learning_rate': 4.5312500000000004e-05, 'epoch': 0.1}
+{'loss': 3.2379, 'grad_norm': 6.2512431144714355, 'learning_rate': 4.515625e-05, 'epoch': 0.11}
+{'loss': 3.2528, 'grad_norm': 6.121426582336426, 'learning_rate': 4.5e-05, 'epoch': 0.11}
+{'loss': 3.2513, 'grad_norm': 6.805795669555664, 'learning_rate': 4.484375e-05, 'epoch': 0.12}
+{'loss': 3.2243, 'grad_norm': 6.376026630401611, 'learning_rate': 4.46875e-05, 'epoch': 0.12}
+{'loss': 3.2006, 'grad_norm': 6.409020900726318, 'learning_rate': 4.453125e-05, 'epoch': 0.12}
+{'loss': 3.1895, 'grad_norm': 6.432254314422607, 'learning_rate': 4.4375e-05, 'epoch': 0.13}
+{'loss': 3.2205, 'grad_norm': 6.639708042144775, 'learning_rate': 4.421875e-05, 'epoch': 0.13}
+{'loss': 3.1868, 'grad_norm': 6.560477256774902, 'learning_rate': 4.40625e-05, 'epoch': 0.13}
+{'loss': 3.2481, 'grad_norm': 6.305062294006348, 'learning_rate': 4.390625000000001e-05, 'epoch': 0.14}
+{'loss': 3.2503, 'grad_norm': 6.576470375061035, 'learning_rate': 4.375e-05, 'epoch': 0.14}
+ 12% 1000/8000 [13:14<1:31:10,  1.28it/s]***** Running Evaluation *****
+  Num examples = 50
+  Batch size = 16
+
+  0% 0/4 [00:00<?, ?it/s]
+ 50% 2/4 [00:04<00:04,  2.12s/it]
+ 75% 3/4 [00:14<00:05,  5.63s/it]
+100% 4/4 [00:25<00:00,  7.51s/it]Building prefix dict from the default dictionary ...
+Loading model from cache /tmp/jieba.cache
+Loading model cost 0.689 seconds.
+Prefix dict has been built successfully.
+                                         
+{'eval_rouge-1': 32.165838, 'eval_rouge-2': 7.564022000000001, 'eval_rouge-l': 25.218594, 'eval_bleu-4': 0.03522149914230722, 'eval_runtime': 30.4194, 'eval_samples_per_second': 1.644, 'eval_steps_per_second': 0.131, 'epoch': 0.14}
+ 12% 1000/8000 [13:45<1:31:10,  1.28it/s]
+100% 4/4 [00:26<00:00,  7.51s/it]
+                                 Checkpoint destination directory ./output/checkpoint-1000 already exists and is non-empty. Saving will proceed but saved results may be invalid.
+Saving model checkpoint to ./output/checkpoint-1000
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in models/THUDM/chatglm3-6b - will assume that the vocabulary was not modified.
+  warnings.warn(
+{'loss': 3.2115, 'grad_norm': 6.4509687423706055, 'learning_rate': 4.359375e-05, 'epoch': 0.14}
+{'loss': 3.2273, 'grad_norm': 6.4296674728393555, 'learning_rate': 4.3437500000000006e-05, 'epoch': 0.15}
+{'loss': 3.2113, 'grad_norm': 6.9615278244018555, 'learning_rate': 4.328125e-05, 'epoch': 0.15}
+{'loss': 3.1839, 'grad_norm': 6.54206657409668, 'learning_rate': 4.3125000000000005e-05, 'epoch': 0.15}
+{'loss': 3.2053, 'grad_norm': 6.394674301147461, 'learning_rate': 4.2968750000000004e-05, 'epoch': 0.16}
+{'loss': 3.1956, 'grad_norm': 7.210118770599365, 'learning_rate': 4.28125e-05, 'epoch': 0.16}
+{'loss': 3.2524, 'grad_norm': 6.8298659324646, 'learning_rate': 4.2656250000000003e-05, 'epoch': 0.16}
+{'loss': 3.2311, 'grad_norm': 6.294135570526123, 'learning_rate': 4.25e-05, 'epoch': 0.17}
+{'loss': 3.1903, 'grad_norm': 6.0237298011779785, 'learning_rate': 4.234375e-05, 'epoch': 0.17}
+{'loss': 3.1671, 'grad_norm': 6.09128475189209, 'learning_rate': 4.21875e-05, 'epoch': 0.17}
+{'loss': 3.2198, 'grad_norm': 6.46207857131958, 'learning_rate': 4.203125e-05, 'epoch': 0.18}
+{'loss': 3.1934, 'grad_norm': 6.753966331481934, 'learning_rate': 4.1875e-05, 'epoch': 0.18}
+{'loss': 3.1442, 'grad_norm': 6.480440616607666, 'learning_rate': 4.171875e-05, 'epoch': 0.18}
+{'loss': 3.1612, 'grad_norm': 6.477458953857422, 'learning_rate': 4.156250000000001e-05, 'epoch': 0.19}
+{'loss': 3.1853, 'grad_norm': 6.5325493812561035, 'learning_rate': 4.140625e-05, 'epoch': 0.19}
+{'loss': 3.1986, 'grad_norm': 6.333869457244873, 'learning_rate': 4.125e-05, 'epoch': 0.2}
+{'loss': 3.2043, 'grad_norm': 6.496013164520264, 'learning_rate': 4.1093750000000006e-05, 'epoch': 0.2}
+{'loss': 3.2212, 'grad_norm': 6.516563892364502, 'learning_rate': 4.09375e-05, 'epoch': 0.2}
+{'loss': 3.1183, 'grad_norm': 5.9534807205200195, 'learning_rate': 4.0781250000000005e-05, 'epoch': 0.21}
+{'loss': 3.2643, 'grad_norm': 6.22523307800293, 'learning_rate': 4.0625000000000005e-05, 'epoch': 0.21}
+{'loss': 3.162, 'grad_norm': 6.4839301109313965, 'learning_rate': 4.046875e-05, 'epoch': 0.21}
+{'loss': 3.1716, 'grad_norm': 6.805156707763672, 'learning_rate': 4.0312500000000004e-05, 'epoch': 0.22}
+{'loss': 3.1698, 'grad_norm': 6.619258403778076, 'learning_rate': 4.0156250000000004e-05, 'epoch': 0.22}
+{'loss': 3.2452, 'grad_norm': 6.27993631362915, 'learning_rate': 4e-05, 'epoch': 0.22}
+{'loss': 3.2067, 'grad_norm': 6.301827907562256, 'learning_rate': 3.984375e-05, 'epoch': 0.23}
+{'loss': 3.1944, 'grad_norm': 6.387763500213623, 'learning_rate': 3.96875e-05, 'epoch': 0.23}
+{'loss': 3.1461, 'grad_norm': 6.992061138153076, 'learning_rate': 3.953125e-05, 'epoch': 0.23}
+{'loss': 3.1806, 'grad_norm': 6.26113224029541, 'learning_rate': 3.9375e-05, 'epoch': 0.24}
+{'loss': 3.1856, 'grad_norm': 6.756810665130615, 'learning_rate': 3.921875e-05, 'epoch': 0.24}
+{'loss': 3.1715, 'grad_norm': 6.1924052238464355, 'learning_rate': 3.90625e-05, 'epoch': 0.24}
+{'loss': 3.1827, 'grad_norm': 7.058562278747559, 'learning_rate': 3.890625e-05, 'epoch': 0.25}
+{'loss': 3.1903, 'grad_norm': 6.84136962890625, 'learning_rate': 3.875e-05, 'epoch': 0.25}
+{'loss': 3.1493, 'grad_norm': 6.538081169128418, 'learning_rate': 3.859375e-05, 'epoch': 0.25}
+{'loss': 3.154, 'grad_norm': 7.072056770324707, 'learning_rate': 3.8437500000000006e-05, 'epoch': 0.26}
+{'loss': 3.1334, 'grad_norm': 6.82246208190918, 'learning_rate': 3.828125e-05, 'epoch': 0.26}
+{'loss': 3.2051, 'grad_norm': 6.305246353149414, 'learning_rate': 3.8125e-05, 'epoch': 0.27}
+{'loss': 3.1475, 'grad_norm': 6.560094356536865, 'learning_rate': 3.7968750000000005e-05, 'epoch': 0.27}
+{'loss': 3.1673, 'grad_norm': 6.112670421600342, 'learning_rate': 3.78125e-05, 'epoch': 0.27}
+{'loss': 3.1757, 'grad_norm': 6.690279006958008, 'learning_rate': 3.7656250000000004e-05, 'epoch': 0.28}
+{'loss': 3.1618, 'grad_norm': 6.66140079498291, 'learning_rate': 3.7500000000000003e-05, 'epoch': 0.28}
+ 25% 2000/8000 [27:00<1:17:26,  1.29it/s]/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 16 worker processes in total. Our suggested max number of worker in current system is 12, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+***** Running Evaluation *****
+  Num examples = 50
+  Batch size = 16
+
+  0% 0/4 [00:00<?, ?it/s]
+ 50% 2/4 [00:06<00:06,  3.20s/it]
+ 75% 3/4 [00:09<00:03,  3.15s/it]
+                                         
+{'eval_rouge-1': 33.10444, 'eval_rouge-2': 7.349438, 'eval_rouge-l': 26.300659999999997, 'eval_bleu-4': 0.03414869415590823, 'eval_runtime': 16.8042, 'eval_samples_per_second': 2.975, 'eval_steps_per_second': 0.238, 'epoch': 0.28}
+ 25% 2000/8000 [27:17<1:17:26,  1.29it/s]
+100% 4/4 [00:12<00:00,  3.18s/it]
+                                 Checkpoint destination directory ./output/checkpoint-2000 already exists and is non-empty. Saving will proceed but saved results may be invalid.
+Saving model checkpoint to ./output/checkpoint-2000
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in models/THUDM/chatglm3-6b - will assume that the vocabulary was not modified.
+  warnings.warn(
+{'loss': 3.1326, 'grad_norm': 6.674555778503418, 'learning_rate': 3.7343749999999996e-05, 'epoch': 0.28}
+{'loss': 3.1839, 'grad_norm': 7.307922840118408, 'learning_rate': 3.71875e-05, 'epoch': 0.29}
+{'loss': 3.1638, 'grad_norm': 6.617319583892822, 'learning_rate': 3.703125e-05, 'epoch': 0.29}
+{'loss': 3.1436, 'grad_norm': 6.738682746887207, 'learning_rate': 3.6875e-05, 'epoch': 0.29}
+{'loss': 3.1376, 'grad_norm': 6.078250885009766, 'learning_rate': 3.6725000000000005e-05, 'epoch': 0.3}
+{'loss': 3.1484, 'grad_norm': 6.714727401733398, 'learning_rate': 3.6568750000000005e-05, 'epoch': 0.3}
+{'loss': 3.1794, 'grad_norm': 6.268121242523193, 'learning_rate': 3.64125e-05, 'epoch': 0.3}
+{'loss': 3.1473, 'grad_norm': 6.742485046386719, 'learning_rate': 3.6256250000000004e-05, 'epoch': 0.31}
+{'loss': 3.1608, 'grad_norm': 6.927061080932617, 'learning_rate': 3.61e-05, 'epoch': 0.31}
+{'loss': 3.1755, 'grad_norm': 6.897130012512207, 'learning_rate': 3.594375e-05, 'epoch': 0.31}
+{'loss': 3.1453, 'grad_norm': 6.757779121398926, 'learning_rate': 3.57875e-05, 'epoch': 0.32}
+{'loss': 3.1178, 'grad_norm': 6.50203275680542, 'learning_rate': 3.563125e-05, 'epoch': 0.32}
+{'loss': 3.1496, 'grad_norm': 6.481674671173096, 'learning_rate': 3.5475e-05, 'epoch': 0.32}
+{'loss': 3.1502, 'grad_norm': 6.950092792510986, 'learning_rate': 3.531875e-05, 'epoch': 0.33}
+{'loss': 3.0898, 'grad_norm': 6.254732608795166, 'learning_rate': 3.51625e-05, 'epoch': 0.33}
+{'loss': 3.1618, 'grad_norm': 6.602299213409424, 'learning_rate': 3.500625e-05, 'epoch': 0.34}
+{'loss': 3.1617, 'grad_norm': 6.972589015960693, 'learning_rate': 3.485e-05, 'epoch': 0.34}
+{'loss': 3.1824, 'grad_norm': 6.65015983581543, 'learning_rate': 3.469375e-05, 'epoch': 0.34}
+{'loss': 3.0951, 'grad_norm': 6.812234401702881, 'learning_rate': 3.45375e-05, 'epoch': 0.35}
+{'loss': 3.1376, 'grad_norm': 6.558523178100586, 'learning_rate': 3.4381250000000006e-05, 'epoch': 0.35}
+{'loss': 3.1403, 'grad_norm': 7.078360080718994, 'learning_rate': 3.4225e-05, 'epoch': 0.35}
+{'loss': 3.15, 'grad_norm': 6.579682350158691, 'learning_rate': 3.406875e-05, 'epoch': 0.36}
+{'loss': 3.1494, 'grad_norm': 6.408431053161621, 'learning_rate': 3.3912500000000004e-05, 'epoch': 0.36}
+{'loss': 3.1361, 'grad_norm': 6.564065933227539, 'learning_rate': 3.375625e-05, 'epoch': 0.36}
+{'loss': 3.1411, 'grad_norm': 6.545934677124023, 'learning_rate': 3.3600000000000004e-05, 'epoch': 0.37}
+{'loss': 3.1167, 'grad_norm': 6.664008617401123, 'learning_rate': 3.344375e-05, 'epoch': 0.37}
+{'loss': 3.1244, 'grad_norm': 6.774341583251953, 'learning_rate': 3.3287499999999996e-05, 'epoch': 0.37}
+{'loss': 3.1264, 'grad_norm': 6.426333427429199, 'learning_rate': 3.313125e-05, 'epoch': 0.38}
+{'loss': 3.141, 'grad_norm': 6.810548305511475, 'learning_rate': 3.2975e-05, 'epoch': 0.38}
+{'loss': 3.0835, 'grad_norm': 6.6482648849487305, 'learning_rate': 3.281875e-05, 'epoch': 0.38}
+{'loss': 3.1329, 'grad_norm': 7.3148064613342285, 'learning_rate': 3.26625e-05, 'epoch': 0.39}
+{'loss': 3.1019, 'grad_norm': 6.424184799194336, 'learning_rate': 3.250625e-05, 'epoch': 0.39}
+{'loss': 3.1349, 'grad_norm': 6.7554612159729, 'learning_rate': 3.235e-05, 'epoch': 0.39}
+{'loss': 3.1216, 'grad_norm': 6.6205549240112305, 'learning_rate': 3.219375e-05, 'epoch': 0.4}
+{'loss': 3.1012, 'grad_norm': 6.617169380187988, 'learning_rate': 3.2037500000000006e-05, 'epoch': 0.4}
+{'loss': 3.1854, 'grad_norm': 6.610563278198242, 'learning_rate': 3.188125e-05, 'epoch': 0.4}
+{'loss': 3.0908, 'grad_norm': 6.676445960998535, 'learning_rate': 3.1725e-05, 'epoch': 0.41}
+{'loss': 3.1298, 'grad_norm': 6.773097515106201, 'learning_rate': 3.1568750000000005e-05, 'epoch': 0.41}
+{'loss': 3.0916, 'grad_norm': 7.008196830749512, 'learning_rate': 3.14125e-05, 'epoch': 0.42}
+{'loss': 3.0897, 'grad_norm': 6.7261433601379395, 'learning_rate': 3.1256250000000004e-05, 'epoch': 0.42}
+ 38% 3000/8000 [40:30<1:06:30,  1.25it/s]/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 16 worker processes in total. Our suggested max number of worker in current system is 12, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+***** Running Evaluation *****
+  Num examples = 50
+  Batch size = 16
+
+  0% 0/4 [00:00<?, ?it/s]
+ 50% 2/4 [00:10<00:10,  5.38s/it]
+ 75% 3/4 [00:14<00:04,  4.49s/it]
+                                         
+{'eval_rouge-1': 33.708926, 'eval_rouge-2': 9.049389999999999, 'eval_rouge-l': 26.254508, 'eval_bleu-4': 0.043014276596233934, 'eval_runtime': 28.3729, 'eval_samples_per_second': 1.762, 'eval_steps_per_second': 0.141, 'epoch': 0.42}
+ 38% 3000/8000 [40:58<1:06:30,  1.25it/s]
+100% 4/4 [00:17<00:00,  3.86s/it]
+                                 Checkpoint destination directory ./output/checkpoint-3000 already exists and is non-empty. Saving will proceed but saved results may be invalid.
+Saving model checkpoint to ./output/checkpoint-3000
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in models/THUDM/chatglm3-6b - will assume that the vocabulary was not modified.
+  warnings.warn(
+{'loss': 3.098, 'grad_norm': 6.563082695007324, 'learning_rate': 3.1100000000000004e-05, 'epoch': 0.42}
+{'loss': 3.0794, 'grad_norm': 6.825554847717285, 'learning_rate': 3.0943749999999997e-05, 'epoch': 0.43}
+{'loss': 3.1134, 'grad_norm': 6.428257465362549, 'learning_rate': 3.07875e-05, 'epoch': 0.43}
+{'loss': 3.1031, 'grad_norm': 6.6427388191223145, 'learning_rate': 3.063125e-05, 'epoch': 0.43}
+{'loss': 3.13, 'grad_norm': 6.998889923095703, 'learning_rate': 3.0475000000000002e-05, 'epoch': 0.44}
+{'loss': 3.1036, 'grad_norm': 6.975096225738525, 'learning_rate': 3.0318750000000002e-05, 'epoch': 0.44}
+{'loss': 3.1047, 'grad_norm': 6.853231906890869, 'learning_rate': 3.0162499999999998e-05, 'epoch': 0.44}
+{'loss': 3.0995, 'grad_norm': 7.169567584991455, 'learning_rate': 3.000625e-05, 'epoch': 0.45}
+{'loss': 3.0891, 'grad_norm': 7.225650787353516, 'learning_rate': 2.985e-05, 'epoch': 0.45}
+{'loss': 3.0778, 'grad_norm': 6.536144733428955, 'learning_rate': 2.9693750000000003e-05, 'epoch': 0.45}
+{'loss': 3.0905, 'grad_norm': 6.7784857749938965, 'learning_rate': 2.95375e-05, 'epoch': 0.46}
+{'loss': 3.1154, 'grad_norm': 6.384582042694092, 'learning_rate': 2.938125e-05, 'epoch': 0.46}
+{'loss': 3.0792, 'grad_norm': 7.020155429840088, 'learning_rate': 2.9225000000000002e-05, 'epoch': 0.46}
+{'loss': 3.1255, 'grad_norm': 6.45257043838501, 'learning_rate': 2.9068750000000002e-05, 'epoch': 0.47}
+{'loss': 3.1095, 'grad_norm': 6.381531715393066, 'learning_rate': 2.8912500000000005e-05, 'epoch': 0.47}
+{'loss': 3.1183, 'grad_norm': 6.976809501647949, 'learning_rate': 2.875625e-05, 'epoch': 0.47}
+{'loss': 3.1003, 'grad_norm': 6.70000696182251, 'learning_rate': 2.86e-05, 'epoch': 0.48}
+{'loss': 3.0817, 'grad_norm': 6.998327255249023, 'learning_rate': 2.8443750000000004e-05, 'epoch': 0.48}
+{'loss': 3.1, 'grad_norm': 6.516801834106445, 'learning_rate': 2.82875e-05, 'epoch': 0.49}
+{'loss': 3.1381, 'grad_norm': 6.708960056304932, 'learning_rate': 2.8131250000000003e-05, 'epoch': 0.49}
+{'loss': 3.0478, 'grad_norm': 6.915759086608887, 'learning_rate': 2.7975000000000002e-05, 'epoch': 0.49}
+{'loss': 3.0872, 'grad_norm': 6.719376564025879, 'learning_rate': 2.781875e-05, 'epoch': 0.5}
+{'loss': 3.0846, 'grad_norm': 6.631194114685059, 'learning_rate': 2.76625e-05, 'epoch': 0.5}
+{'loss': 3.0723, 'grad_norm': 6.769970893859863, 'learning_rate': 2.750625e-05, 'epoch': 0.5}
+{'loss': 3.1042, 'grad_norm': 6.306298732757568, 'learning_rate': 2.7350000000000004e-05, 'epoch': 0.51}
+{'loss': 3.0892, 'grad_norm': 6.466765403747559, 'learning_rate': 2.719375e-05, 'epoch': 0.51}
+{'loss': 3.0503, 'grad_norm': 6.556395530700684, 'learning_rate': 2.70375e-05, 'epoch': 0.51}
+{'loss': 3.1434, 'grad_norm': 6.648149013519287, 'learning_rate': 2.6881250000000003e-05, 'epoch': 0.52}
+{'loss': 3.0944, 'grad_norm': 7.073908805847168, 'learning_rate': 2.6725e-05, 'epoch': 0.52}
+{'loss': 3.1266, 'grad_norm': 6.584436893463135, 'learning_rate': 2.6568750000000002e-05, 'epoch': 0.52}
+{'loss': 3.0816, 'grad_norm': 6.321007251739502, 'learning_rate': 2.64125e-05, 'epoch': 0.53}
+{'loss': 3.0465, 'grad_norm': 6.98941707611084, 'learning_rate': 2.6256249999999998e-05, 'epoch': 0.53}
+{'loss': 3.0791, 'grad_norm': 6.885699272155762, 'learning_rate': 2.61e-05, 'epoch': 0.53}
+{'loss': 3.0846, 'grad_norm': 7.157540321350098, 'learning_rate': 2.594375e-05, 'epoch': 0.54}
+{'loss': 3.1413, 'grad_norm': 6.5291571617126465, 'learning_rate': 2.5787500000000003e-05, 'epoch': 0.54}
+{'loss': 3.053, 'grad_norm': 6.819327354431152, 'learning_rate': 2.563125e-05, 'epoch': 0.54}
+{'loss': 3.0951, 'grad_norm': 7.150338172912598, 'learning_rate': 2.5475e-05, 'epoch': 0.55}
+{'loss': 3.1026, 'grad_norm': 7.182808876037598, 'learning_rate': 2.5318750000000002e-05, 'epoch': 0.55}
+{'loss': 3.1154, 'grad_norm': 6.9874444007873535, 'learning_rate': 2.51625e-05, 'epoch': 0.55}
+{'loss': 3.0704, 'grad_norm': 6.586540222167969, 'learning_rate': 2.5006250000000005e-05, 'epoch': 0.56}
+ 50% 4000/8000 [54:11<53:03,  1.26it/s]/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 16 worker processes in total. Our suggested max number of worker in current system is 12, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+***** Running Evaluation *****
+  Num examples = 50
+  Batch size = 16
+
+  0% 0/4 [00:00<?, ?it/s]
+ 50% 2/4 [00:03<00:03,  1.90s/it]
+ 75% 3/4 [00:07<00:02,  2.53s/it]
+                                       
+{'eval_rouge-1': 32.837924, 'eval_rouge-2': 7.486112, 'eval_rouge-l': 25.066905999999996, 'eval_bleu-4': 0.04066636766874594, 'eval_runtime': 21.5843, 'eval_samples_per_second': 2.316, 'eval_steps_per_second': 0.185, 'epoch': 0.56}
+ 50% 4000/8000 [54:32<53:03,  1.26it/s]
+100% 4/4 [00:10<00:00,  2.68s/it]
+                                 Saving model checkpoint to ./output/tmp-checkpoint-4000
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in models/THUDM/chatglm3-6b - will assume that the vocabulary was not modified.
+  warnings.warn(
+{'loss': 3.0621, 'grad_norm': 6.706821441650391, 'learning_rate': 2.485e-05, 'epoch': 0.56}
+{'loss': 3.0098, 'grad_norm': 6.169702529907227, 'learning_rate': 2.469375e-05, 'epoch': 0.57}
+{'loss': 3.0546, 'grad_norm': 6.8483686447143555, 'learning_rate': 2.4537500000000004e-05, 'epoch': 0.57}
+{'loss': 3.0947, 'grad_norm': 6.9041972160339355, 'learning_rate': 2.438125e-05, 'epoch': 0.57}
+{'loss': 3.0731, 'grad_norm': 7.246660232543945, 'learning_rate': 2.4225e-05, 'epoch': 0.58}
+{'loss': 3.0447, 'grad_norm': 6.57277250289917, 'learning_rate': 2.4068750000000002e-05, 'epoch': 0.58}
+{'loss': 3.1232, 'grad_norm': 6.502310276031494, 'learning_rate': 2.3912500000000002e-05, 'epoch': 0.58}
+{'loss': 3.0971, 'grad_norm': 6.870279312133789, 'learning_rate': 2.375625e-05, 'epoch': 0.59}
+{'loss': 3.0854, 'grad_norm': 7.686123371124268, 'learning_rate': 2.36e-05, 'epoch': 0.59}
+{'loss': 3.1229, 'grad_norm': 6.572368144989014, 'learning_rate': 2.344375e-05, 'epoch': 0.59}
+{'loss': 3.0987, 'grad_norm': 6.925757884979248, 'learning_rate': 2.32875e-05, 'epoch': 0.6}
+{'loss': 3.0554, 'grad_norm': 7.372351169586182, 'learning_rate': 2.3131250000000003e-05, 'epoch': 0.6}
+{'loss': 3.0402, 'grad_norm': 6.925522804260254, 'learning_rate': 2.2975000000000003e-05, 'epoch': 0.6}
+{'loss': 3.0949, 'grad_norm': 6.533478260040283, 'learning_rate': 2.281875e-05, 'epoch': 0.61}
+{'loss': 3.1225, 'grad_norm': 6.785353183746338, 'learning_rate': 2.2662500000000002e-05, 'epoch': 0.61}
+{'loss': 3.057, 'grad_norm': 6.563967227935791, 'learning_rate': 2.250625e-05, 'epoch': 0.61}
+{'loss': 3.0546, 'grad_norm': 6.773956298828125, 'learning_rate': 2.235e-05, 'epoch': 0.62}
+{'loss': 3.0955, 'grad_norm': 7.723349094390869, 'learning_rate': 2.219375e-05, 'epoch': 0.62}
+{'loss': 3.102, 'grad_norm': 6.6674370765686035, 'learning_rate': 2.20375e-05, 'epoch': 0.62}
+{'loss': 3.0534, 'grad_norm': 6.559829235076904, 'learning_rate': 2.188125e-05, 'epoch': 0.63}
+{'loss': 3.1511, 'grad_norm': 6.226430892944336, 'learning_rate': 2.1725e-05, 'epoch': 0.63}
+{'loss': 3.1034, 'grad_norm': 6.651580810546875, 'learning_rate': 2.1568750000000002e-05, 'epoch': 0.64}
+{'loss': 3.0933, 'grad_norm': 6.881508827209473, 'learning_rate': 2.1412500000000002e-05, 'epoch': 0.64}
+{'loss': 3.0688, 'grad_norm': 7.033613204956055, 'learning_rate': 2.1256249999999998e-05, 'epoch': 0.64}
+{'loss': 3.0932, 'grad_norm': 6.43912410736084, 'learning_rate': 2.11e-05, 'epoch': 0.65}
+{'loss': 3.0751, 'grad_norm': 6.894386291503906, 'learning_rate': 2.094375e-05, 'epoch': 0.65}
+{'loss': 3.0634, 'grad_norm': 6.685389995574951, 'learning_rate': 2.07875e-05, 'epoch': 0.65}
+{'loss': 3.0766, 'grad_norm': 6.756799221038818, 'learning_rate': 2.06375e-05, 'epoch': 0.66}
+{'loss': 3.1082, 'grad_norm': 6.753198146820068, 'learning_rate': 2.0481250000000003e-05, 'epoch': 0.66}
+{'loss': 3.0507, 'grad_norm': 6.745919704437256, 'learning_rate': 2.0325e-05, 'epoch': 0.66}
+{'loss': 3.0719, 'grad_norm': 6.28759241104126, 'learning_rate': 2.016875e-05, 'epoch': 0.67}
+{'loss': 3.0554, 'grad_norm': 7.310023784637451, 'learning_rate': 2.0012500000000002e-05, 'epoch': 0.67}
+{'loss': 3.074, 'grad_norm': 6.644845962524414, 'learning_rate': 1.985625e-05, 'epoch': 0.67}
+{'loss': 3.0445, 'grad_norm': 6.894899845123291, 'learning_rate': 1.97e-05, 'epoch': 0.68}
+{'loss': 3.0473, 'grad_norm': 6.658076286315918, 'learning_rate': 1.954375e-05, 'epoch': 0.68}
+{'loss': 3.0429, 'grad_norm': 6.862735748291016, 'learning_rate': 1.93875e-05, 'epoch': 0.68}
+{'loss': 3.1042, 'grad_norm': 7.391506195068359, 'learning_rate': 1.923125e-05, 'epoch': 0.69}
+{'loss': 3.0724, 'grad_norm': 6.91941499710083, 'learning_rate': 1.9075000000000003e-05, 'epoch': 0.69}
+{'loss': 3.0705, 'grad_norm': 6.477197170257568, 'learning_rate': 1.8918750000000002e-05, 'epoch': 0.69}
+{'loss': 3.075, 'grad_norm': 6.819544315338135, 'learning_rate': 1.87625e-05, 'epoch': 0.7}
+ 62% 5000/8000 [1:07:45<38:21,  1.30it/s]/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 16 worker processes in total. Our suggested max number of worker in current system is 12, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+***** Running Evaluation *****
+  Num examples = 50
+  Batch size = 16
+
+  0% 0/4 [00:00<?, ?it/s]
+ 50% 2/4 [00:10<00:10,  5.36s/it]
+ 75% 3/4 [00:14<00:04,  4.86s/it]
+                                         
+{'eval_rouge-1': 33.509814, 'eval_rouge-2': 7.6514, 'eval_rouge-l': 25.111008, 'eval_bleu-4': 0.035119048229321964, 'eval_runtime': 37.0826, 'eval_samples_per_second': 1.348, 'eval_steps_per_second': 0.108, 'epoch': 0.7}
+ 62% 5000/8000 [1:08:22<38:21,  1.30it/s]
+100% 4/4 [00:25<00:00,  7.02s/it]
+                                 Saving model checkpoint to ./output/tmp-checkpoint-5000
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in models/THUDM/chatglm3-6b - will assume that the vocabulary was not modified.
+  warnings.warn(
+{'loss': 3.0829, 'grad_norm': 6.720066070556641, 'learning_rate': 1.860625e-05, 'epoch': 0.7}
+{'loss': 3.0528, 'grad_norm': 6.733827114105225, 'learning_rate': 1.845e-05, 'epoch': 0.71}
+{'loss': 3.1307, 'grad_norm': 6.803452491760254, 'learning_rate': 1.829375e-05, 'epoch': 0.71}
+{'loss': 3.0547, 'grad_norm': 6.639063835144043, 'learning_rate': 1.81375e-05, 'epoch': 0.71}
+{'loss': 3.061, 'grad_norm': 7.115007400512695, 'learning_rate': 1.798125e-05, 'epoch': 0.72}
+{'loss': 3.0612, 'grad_norm': 7.023044586181641, 'learning_rate': 1.7825e-05, 'epoch': 0.72}
+{'loss': 3.0493, 'grad_norm': 6.8225178718566895, 'learning_rate': 1.766875e-05, 'epoch': 0.72}
+{'loss': 3.0762, 'grad_norm': 6.734564304351807, 'learning_rate': 1.7512500000000002e-05, 'epoch': 0.73}
+{'loss': 3.0843, 'grad_norm': 7.051535606384277, 'learning_rate': 1.7356250000000002e-05, 'epoch': 0.73}
+{'loss': 3.1255, 'grad_norm': 7.681034564971924, 'learning_rate': 1.7199999999999998e-05, 'epoch': 0.73}
+{'loss': 3.0825, 'grad_norm': 6.7253875732421875, 'learning_rate': 1.704375e-05, 'epoch': 0.74}
+{'loss': 3.0541, 'grad_norm': 7.2316694259643555, 'learning_rate': 1.68875e-05, 'epoch': 0.74}
+{'loss': 3.0353, 'grad_norm': 7.153750896453857, 'learning_rate': 1.673125e-05, 'epoch': 0.74}
+{'loss': 3.0473, 'grad_norm': 6.559616565704346, 'learning_rate': 1.6575000000000003e-05, 'epoch': 0.75}
+{'loss': 3.0698, 'grad_norm': 6.639342308044434, 'learning_rate': 1.641875e-05, 'epoch': 0.75}
+{'loss': 3.0921, 'grad_norm': 6.593416213989258, 'learning_rate': 1.62625e-05, 'epoch': 0.75}
+{'loss': 3.0468, 'grad_norm': 7.266806125640869, 'learning_rate': 1.6106250000000002e-05, 'epoch': 0.76}
+{'loss': 3.0739, 'grad_norm': 6.825833320617676, 'learning_rate': 1.595e-05, 'epoch': 0.76}
+{'loss': 3.0794, 'grad_norm': 7.010843753814697, 'learning_rate': 1.579375e-05, 'epoch': 0.76}
+{'loss': 3.0766, 'grad_norm': 6.757575511932373, 'learning_rate': 1.56375e-05, 'epoch': 0.77}
+{'loss': 3.072, 'grad_norm': 6.803675174713135, 'learning_rate': 1.548125e-05, 'epoch': 0.77}
+{'loss': 3.059, 'grad_norm': 6.876237869262695, 'learning_rate': 1.5325e-05, 'epoch': 0.77}
+{'loss': 3.0902, 'grad_norm': 6.5273213386535645, 'learning_rate': 1.5168750000000001e-05, 'epoch': 0.78}
+{'loss': 3.0515, 'grad_norm': 6.790352821350098, 'learning_rate': 1.5012500000000002e-05, 'epoch': 0.78}
+{'loss': 3.0893, 'grad_norm': 7.398083686828613, 'learning_rate': 1.4856249999999999e-05, 'epoch': 0.79}
+{'loss': 3.0397, 'grad_norm': 6.737329483032227, 'learning_rate': 1.47e-05, 'epoch': 0.79}
+{'loss': 3.0427, 'grad_norm': 7.047488689422607, 'learning_rate': 1.4543750000000001e-05, 'epoch': 0.79}
+{'loss': 3.0895, 'grad_norm': 7.010128974914551, 'learning_rate': 1.43875e-05, 'epoch': 0.8}
+{'loss': 3.0302, 'grad_norm': 7.123437881469727, 'learning_rate': 1.4231250000000002e-05, 'epoch': 0.8}
+{'loss': 3.0487, 'grad_norm': 6.731768608093262, 'learning_rate': 1.4075e-05, 'epoch': 0.8}
+{'loss': 3.0838, 'grad_norm': 7.536762237548828, 'learning_rate': 1.391875e-05, 'epoch': 0.81}
+{'loss': 3.0687, 'grad_norm': 6.886401176452637, 'learning_rate': 1.37625e-05, 'epoch': 0.81}
+{'loss': 3.0604, 'grad_norm': 7.571900367736816, 'learning_rate': 1.360625e-05, 'epoch': 0.81}
+{'loss': 3.0558, 'grad_norm': 7.201921463012695, 'learning_rate': 1.3450000000000002e-05, 'epoch': 0.82}
+{'loss': 3.0731, 'grad_norm': 7.174124717712402, 'learning_rate': 1.329375e-05, 'epoch': 0.82}
+{'loss': 3.0503, 'grad_norm': 6.742583274841309, 'learning_rate': 1.31375e-05, 'epoch': 0.82}
+{'loss': 3.0889, 'grad_norm': 7.099446773529053, 'learning_rate': 1.298125e-05, 'epoch': 0.83}
+{'loss': 3.0909, 'grad_norm': 7.52410364151001, 'learning_rate': 1.2825000000000002e-05, 'epoch': 0.83}
+{'loss': 3.0413, 'grad_norm': 7.525298118591309, 'learning_rate': 1.2668750000000001e-05, 'epoch': 0.83}
+{'loss': 3.0311, 'grad_norm': 7.166632175445557, 'learning_rate': 1.25125e-05, 'epoch': 0.84}
+ 75% 6000/8000 [1:21:34<26:51,  1.24it/s]/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 16 worker processes in total. Our suggested max number of worker in current system is 12, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+***** Running Evaluation *****
+  Num examples = 50
+  Batch size = 16
+
+  0% 0/4 [00:00<?, ?it/s]
+ 50% 2/4 [00:03<00:03,  1.98s/it]
+ 75% 3/4 [00:14<00:05,  5.58s/it]
+                                         
+{'eval_rouge-1': 33.519358000000004, 'eval_rouge-2': 8.044804, 'eval_rouge-l': 25.51553, 'eval_bleu-4': 0.03862392973933027, 'eval_runtime': 28.644, 'eval_samples_per_second': 1.746, 'eval_steps_per_second': 0.14, 'epoch': 0.84}
+ 75% 6000/8000 [1:22:03<26:51,  1.24it/s]
+100% 4/4 [00:17<00:00,  4.46s/it]
+                                 Saving model checkpoint to ./output/tmp-checkpoint-6000
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in models/THUDM/chatglm3-6b - will assume that the vocabulary was not modified.
+  warnings.warn(
+{'loss': 3.0253, 'grad_norm': 7.443760871887207, 'learning_rate': 1.235625e-05, 'epoch': 0.84}
+{'loss': 3.0379, 'grad_norm': 6.737528324127197, 'learning_rate': 1.22e-05, 'epoch': 0.84}
+{'loss': 3.1159, 'grad_norm': 6.699151515960693, 'learning_rate': 1.2043750000000001e-05, 'epoch': 0.85}
+{'loss': 3.0314, 'grad_norm': 7.416630744934082, 'learning_rate': 1.18875e-05, 'epoch': 0.85}
+{'loss': 3.0593, 'grad_norm': 7.177070140838623, 'learning_rate': 1.173125e-05, 'epoch': 0.86}
+{'loss': 3.0338, 'grad_norm': 7.051250457763672, 'learning_rate': 1.1575000000000002e-05, 'epoch': 0.86}
+{'loss': 3.0456, 'grad_norm': 7.287434101104736, 'learning_rate': 1.141875e-05, 'epoch': 0.86}
+{'loss': 3.0744, 'grad_norm': 7.375473499298096, 'learning_rate': 1.1262500000000001e-05, 'epoch': 0.87}
+{'loss': 3.0597, 'grad_norm': 6.986913681030273, 'learning_rate': 1.110625e-05, 'epoch': 0.87}
+{'loss': 3.0694, 'grad_norm': 6.990248203277588, 'learning_rate': 1.095e-05, 'epoch': 0.87}
+{'loss': 3.0373, 'grad_norm': 7.186672687530518, 'learning_rate': 1.0793750000000001e-05, 'epoch': 0.88}
+{'loss': 3.037, 'grad_norm': 7.677206516265869, 'learning_rate': 1.0637500000000001e-05, 'epoch': 0.88}
+{'loss': 3.0504, 'grad_norm': 6.765493392944336, 'learning_rate': 1.048125e-05, 'epoch': 0.88}
+{'loss': 3.075, 'grad_norm': 7.244637489318848, 'learning_rate': 1.0325e-05, 'epoch': 0.89}
+{'loss': 3.0601, 'grad_norm': 7.347101211547852, 'learning_rate': 1.016875e-05, 'epoch': 0.89}
+{'loss': 3.0307, 'grad_norm': 6.569877624511719, 'learning_rate': 1.0012500000000001e-05, 'epoch': 0.89}
+{'loss': 3.0651, 'grad_norm': 7.180483818054199, 'learning_rate': 9.85625e-06, 'epoch': 0.9}
+{'loss': 3.0491, 'grad_norm': 6.82769250869751, 'learning_rate': 9.7e-06, 'epoch': 0.9}
+{'loss': 3.0823, 'grad_norm': 6.981909275054932, 'learning_rate': 9.54375e-06, 'epoch': 0.9}
+{'loss': 3.0407, 'grad_norm': 7.168030261993408, 'learning_rate': 9.387500000000001e-06, 'epoch': 0.91}
+{'loss': 3.037, 'grad_norm': 6.899554252624512, 'learning_rate': 9.23125e-06, 'epoch': 0.91}
+{'loss': 3.091, 'grad_norm': 6.531689643859863, 'learning_rate': 9.075e-06, 'epoch': 0.91}
+{'loss': 3.0612, 'grad_norm': 7.0054402351379395, 'learning_rate': 8.91875e-06, 'epoch': 0.92}
+{'loss': 3.0712, 'grad_norm': 6.912726402282715, 'learning_rate': 8.7625e-06, 'epoch': 0.92}
+{'loss': 3.0988, 'grad_norm': 7.0505170822143555, 'learning_rate': 8.60625e-06, 'epoch': 0.92}
+{'loss': 3.0559, 'grad_norm': 8.086052894592285, 'learning_rate': 8.45e-06, 'epoch': 0.93}
+{'loss': 3.0546, 'grad_norm': 6.974052429199219, 'learning_rate': 8.29375e-06, 'epoch': 0.93}
+{'loss': 3.0413, 'grad_norm': 7.1195855140686035, 'learning_rate': 8.137500000000001e-06, 'epoch': 0.94}
+{'loss': 3.0288, 'grad_norm': 6.865273952484131, 'learning_rate': 7.98125e-06, 'epoch': 0.94}
+{'loss': 3.066, 'grad_norm': 6.929889678955078, 'learning_rate': 7.825e-06, 'epoch': 0.94}
+{'loss': 3.0359, 'grad_norm': 7.12838077545166, 'learning_rate': 7.668750000000002e-06, 'epoch': 0.95}
+{'loss': 3.0406, 'grad_norm': 7.555715084075928, 'learning_rate': 7.5125000000000005e-06, 'epoch': 0.95}
+{'loss': 3.0369, 'grad_norm': 7.180952548980713, 'learning_rate': 7.356250000000001e-06, 'epoch': 0.95}
+{'loss': 3.0314, 'grad_norm': 7.067104339599609, 'learning_rate': 7.2e-06, 'epoch': 0.96}
+{'loss': 3.0558, 'grad_norm': 7.579901695251465, 'learning_rate': 7.04375e-06, 'epoch': 0.96}
+{'loss': 3.0529, 'grad_norm': 7.769797325134277, 'learning_rate': 6.8875000000000005e-06, 'epoch': 0.96}
+{'loss': 3.0127, 'grad_norm': 7.096338748931885, 'learning_rate': 6.737500000000001e-06, 'epoch': 0.97}
+{'loss': 3.061, 'grad_norm': 7.595314025878906, 'learning_rate': 6.58125e-06, 'epoch': 0.97}
+{'loss': 3.0262, 'grad_norm': 7.089076042175293, 'learning_rate': 6.425e-06, 'epoch': 0.97}
+{'loss': 3.0175, 'grad_norm': 7.068506240844727, 'learning_rate': 6.26875e-06, 'epoch': 0.98}
+ 88% 7000/8000 [1:35:18<13:27,  1.24it/s]/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 16 worker processes in total. Our suggested max number of worker in current system is 12, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+***** Running Evaluation *****
+  Num examples = 50
+  Batch size = 16
+
+  0% 0/4 [00:00<?, ?it/s]
+ 50% 2/4 [00:04<00:04,  2.43s/it]
+ 75% 3/4 [00:08<00:02,  2.85s/it]
+                                         
+{'eval_rouge-1': 34.163838, 'eval_rouge-2': 8.518672, 'eval_rouge-l': 26.49012, 'eval_bleu-4': 0.04132288805703942, 'eval_runtime': 14.7, 'eval_samples_per_second': 3.401, 'eval_steps_per_second': 0.272, 'epoch': 0.98}
+ 88% 7000/8000 [1:35:33<13:27,  1.24it/s]
+100% 4/4 [00:10<00:00,  2.65s/it]
+                                 Saving model checkpoint to ./output/tmp-checkpoint-7000
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in models/THUDM/chatglm3-6b - will assume that the vocabulary was not modified.
+  warnings.warn(
+{'loss': 3.0072, 'grad_norm': 7.547343730926514, 'learning_rate': 6.1125e-06, 'epoch': 0.98}
+{'loss': 3.063, 'grad_norm': 7.4792280197143555, 'learning_rate': 5.95625e-06, 'epoch': 0.98}
+{'loss': 3.0574, 'grad_norm': 7.037683010101318, 'learning_rate': 5.8e-06, 'epoch': 0.99}
+{'loss': 3.0175, 'grad_norm': 7.853835105895996, 'learning_rate': 5.643750000000001e-06, 'epoch': 0.99}
+{'loss': 3.0698, 'grad_norm': 7.513693332672119, 'learning_rate': 5.4875e-06, 'epoch': 0.99}
+{'loss': 3.0502, 'grad_norm': 7.491745471954346, 'learning_rate': 5.33125e-06, 'epoch': 1.0}
+ 90% 7162/8000 [1:37:41<10:55,  1.28it/s]/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 16 worker processes in total. Our suggested max number of worker in current system is 12, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+{'loss': 3.0221, 'grad_norm': 6.929961204528809, 'learning_rate': 5.175e-06, 'epoch': 1.0}
+{'loss': 3.04, 'grad_norm': 7.7233099937438965, 'learning_rate': 5.018750000000001e-06, 'epoch': 1.01}
+{'loss': 3.0187, 'grad_norm': 7.554509162902832, 'learning_rate': 4.8625000000000005e-06, 'epoch': 1.01}
+{'loss': 2.9872, 'grad_norm': 7.271574974060059, 'learning_rate': 4.70625e-06, 'epoch': 1.01}
+{'loss': 3.0258, 'grad_norm': 7.418499946594238, 'learning_rate': 4.5500000000000005e-06, 'epoch': 1.02}
+{'loss': 3.005, 'grad_norm': 7.169942855834961, 'learning_rate': 4.39375e-06, 'epoch': 1.02}
+{'loss': 2.9888, 'grad_norm': 7.718091011047363, 'learning_rate': 4.2375000000000005e-06, 'epoch': 1.02}
+{'loss': 3.0124, 'grad_norm': 7.047276496887207, 'learning_rate': 4.08125e-06, 'epoch': 1.03}
+{'loss': 3.0173, 'grad_norm': 7.40697717666626, 'learning_rate': 3.9250000000000005e-06, 'epoch': 1.03}
+{'loss': 3.0602, 'grad_norm': 7.033374309539795, 'learning_rate': 3.76875e-06, 'epoch': 1.03}
+{'loss': 2.9728, 'grad_norm': 7.6466169357299805, 'learning_rate': 3.6124999999999997e-06, 'epoch': 1.04}
+{'loss': 3.0422, 'grad_norm': 7.1010284423828125, 'learning_rate': 3.4562500000000006e-06, 'epoch': 1.04}
+{'loss': 3.0333, 'grad_norm': 7.296413421630859, 'learning_rate': 3.3e-06, 'epoch': 1.04}
+{'loss': 3.0028, 'grad_norm': 7.62086820602417, 'learning_rate': 3.14375e-06, 'epoch': 1.05}
+{'loss': 3.0204, 'grad_norm': 7.557666301727295, 'learning_rate': 2.9875e-06, 'epoch': 1.05}
+{'loss': 3.0165, 'grad_norm': 7.265463352203369, 'learning_rate': 2.83125e-06, 'epoch': 1.05}
+{'loss': 3.0515, 'grad_norm': 7.109556674957275, 'learning_rate': 2.6750000000000002e-06, 'epoch': 1.06}
+{'loss': 3.0356, 'grad_norm': 7.275899887084961, 'learning_rate': 2.5187500000000002e-06, 'epoch': 1.06}
+{'loss': 3.0365, 'grad_norm': 6.979001998901367, 'learning_rate': 2.3625000000000003e-06, 'epoch': 1.06}
+{'loss': 3.0347, 'grad_norm': 7.159457683563232, 'learning_rate': 2.20625e-06, 'epoch': 1.07}
+{'loss': 3.0036, 'grad_norm': 7.5897698402404785, 'learning_rate': 2.0500000000000003e-06, 'epoch': 1.07}
+{'loss': 3.0234, 'grad_norm': 7.658105373382568, 'learning_rate': 1.89375e-06, 'epoch': 1.08}
+{'loss': 3.0125, 'grad_norm': 7.263454914093018, 'learning_rate': 1.7375000000000003e-06, 'epoch': 1.08}
+{'loss': 3.018, 'grad_norm': 7.208878993988037, 'learning_rate': 1.5812500000000001e-06, 'epoch': 1.08}
+{'loss': 3.0065, 'grad_norm': 7.741599082946777, 'learning_rate': 1.4250000000000001e-06, 'epoch': 1.09}
+{'loss': 3.0097, 'grad_norm': 7.645491600036621, 'learning_rate': 1.2687500000000001e-06, 'epoch': 1.09}
+{'loss': 3.026, 'grad_norm': 7.225083351135254, 'learning_rate': 1.1125e-06, 'epoch': 1.09}
+{'loss': 3.0569, 'grad_norm': 6.495636463165283, 'learning_rate': 9.5625e-07, 'epoch': 1.1}
+{'loss': 3.0412, 'grad_norm': 7.361515045166016, 'learning_rate': 8.000000000000001e-07, 'epoch': 1.1}
+{'loss': 3.0092, 'grad_norm': 7.14296817779541, 'learning_rate': 6.4375e-07, 'epoch': 1.1}
+{'loss': 2.9842, 'grad_norm': 7.491602897644043, 'learning_rate': 4.875e-07, 'epoch': 1.11}
+{'loss': 3.0607, 'grad_norm': 7.561606407165527, 'learning_rate': 3.3125e-07, 'epoch': 1.11}
+{'loss': 3.0337, 'grad_norm': 7.02121639251709, 'learning_rate': 1.7500000000000002e-07, 'epoch': 1.11}
+{'loss': 3.0103, 'grad_norm': 7.3705244064331055, 'learning_rate': 1.8750000000000002e-08, 'epoch': 1.12}
+100% 8000/8000 [1:48:49<00:00,  1.25it/s]***** Running Evaluation *****
+  Num examples = 50
+  Batch size = 16
+
+  0% 0/4 [00:00<?, ?it/s]
+ 50% 2/4 [00:10<00:10,  5.32s/it]
+ 75% 3/4 [00:13<00:04,  4.47s/it]
+                                         
+{'eval_rouge-1': 33.025688, 'eval_rouge-2': 7.92154, 'eval_rouge-l': 26.046530000000004, 'eval_bleu-4': 0.03948887202244507, 'eval_runtime': 20.6878, 'eval_samples_per_second': 2.417, 'eval_steps_per_second': 0.193, 'epoch': 1.12}
+100% 8000/8000 [1:49:09<00:00,  1.25it/s]
+100% 4/4 [00:16<00:00,  3.65s/it]
+                                 Saving model checkpoint to ./output/tmp-checkpoint-8000
+/usr/local/lib/python3.10/dist-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in models/THUDM/chatglm3-6b - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+{'train_runtime': 6550.1313, 'train_samples_per_second': 19.542, 'train_steps_per_second': 1.221, 'train_loss': 3.123331298828125, 'epoch': 1.12}
+100% 8000/8000 [1:49:10<00:00,  1.22it/s]
+/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py:558: UserWarning: This DataLoader will create 16 worker processes in total. Our suggested max number of worker in current system is 12, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+***** Running Prediction *****
+  Num examples = 1070
+  Batch size = 16
+100% 67/67 [06:06<00:00,  5.48s/it]
+
+
